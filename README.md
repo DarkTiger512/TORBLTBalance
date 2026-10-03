@@ -45,7 +45,7 @@ It does **not** simply halve every enchantment.
 - The Old Realms / TOR_Core
 - .NET Framework 4.8 build tools / Visual Studio Build Tools
 
-The project compiles against the copies of those mods installed in your Bannerlord directory. This is intentional: TOR and BLT can target different Bannerlord releases over time, so the installed DLLs are the source of truth for a release build.
+The module targets Bannerlord 1.3.15, matching TOR War in the Mountains 1.16. The build downloads checksum-verified Bannerlord.ReferenceAssemblies.Core 1.3.15.110062 instead of using the installed game DLLs. Harmony, BLT, and TOR references come from the specified installation; use versions compatible with Bannerlord 1.3.15 for runtime testing. A newer locally installed BLT DLL can provide its adopted-hero API for compilation, but does not establish compatibility with the older game.
 
 ## Build
 
@@ -110,3 +110,5 @@ The scope is deliberately conservative for v0.1.0. Static enchantment bonuses an
 ## Known compatibility note
 
 At the time this repository was created, the public TOR development source and current Bannerlord-Twitch source may target different Bannerlord patch lines. Build this project against the **actual TOR + BLT DLLs that are installed together in the streamer's working Bannerlord setup**. If those two mods run together there, this project should be built against that same installation.
+
+For a separately downloaded TOR DLL, pass `-TorCoreDll 'path\to\TOR_Core.dll'` to build.ps1. Experimental releases have not been validated in-game.

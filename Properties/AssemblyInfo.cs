@@ -7,5 +7,5 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyProduct("TOR BLT Balance")]
 [assembly: ComVisible(false)]
 [assembly: Guid("d2af2e0f-13e7-44e1-b8d8-4d97e9851cb5")]
-[assembly: AssemblyVersion("0.1.0.0")]
-[assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: AssemblyVersion("0.1.1.0")]
+[assembly: AssemblyFileVersion("0.1.1.0")]
