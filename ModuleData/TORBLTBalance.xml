@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TORBLTBalanceConfig>
+  <Enabled>true</Enabled>
+
+  <!-- Applied only to TOR defensive triggered-effect enchantments on BLT adopted heroes. -->
+  <DefensiveProcSharedCooldownSeconds>5</DefensiveProcSharedCooldownSeconds>
+
+  <!-- Caps the number of enemies affected by a single passive defensive AoE proc. 0 disables the cap. -->
+  <DefensiveProcMaxTargets>4</DefensiveProcMaxTargets>
+
+  <!-- Caps status-effect duration created by defensive enchantment procs. 0 disables the cap. -->
+  <DefensiveProcMaxStatusDurationSeconds>8</DefensiveProcMaxStatusDurationSeconds>
+
+  <!-- Set true while tuning to see suppressed/capped procs in the game log. -->
+  <VerboseLogging>false</VerboseLogging>
+</TORBLTBalanceConfig>
