@@ -30,18 +30,5 @@ namespace TORBLTBalance
                 BalanceConfig.Log("Startup failed: " + ex);
             }
         }
-
-        protected override void OnSubModuleUnloaded()
-        {
-            try
-            {
-                _harmony?.UnpatchAll(_harmony.Id);
-            }
-            finally
-            {
-                _harmony = null;
-                base.OnSubModuleUnloaded();
-            }
-        }
     }
 }
