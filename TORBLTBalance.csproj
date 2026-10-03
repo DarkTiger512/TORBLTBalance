@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Debug</Configuration>
+    <Platform Condition="'$(Platform)' == ''">AnyCPU</Platform>
+    <ProjectGuid>{82F7B5D8-E298-43B5-9CF6-F31E1426D0B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TORBLTBalance</RootNamespace>
+    <AssemblyName>TORBLTBalance</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>9</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <BANNERLORD_GAME_DIR Condition="'$(BANNERLORD_GAME_DIR)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Mount &amp; Blade II Bannerlord</BANNERLORD_GAME_DIR>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>build\bin\Win64_Shipping_Client\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>build\bin\Win64_Shipping_Client\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(BANNERLORD_GAME_DIR)\Modules\Bannerlord.Harmony\bin\Win64_Shipping_Client\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BannerlordTwitch">
+      <HintPath>$(BANNERLORD_GAME_DIR)\Modules\BannerlordTwitch\bin\Win64_Shipping_Client\BannerlordTwitch.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="BLTAdoptAHero">
+      <HintPath>$(BANNERLORD_GAME_DIR)\Modules\BLTAdoptAHero\bin\Win64_Shipping_Client\BLTAdoptAHero.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TOR_Core">
+      <HintPath>$(BANNERLORD_GAME_DIR)\Modules\TOR_Core\bin\Win64_Shipping_Client\TOR_Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.CampaignSystem">
+      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Core">
+      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.Core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.Library">
+      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.Library.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="TaleWorlds.MountAndBlade">
+      <HintPath>$(BANNERLORD_GAME_DIR)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="SubModule.cs" />
+    <Compile Include="BalanceConfig.cs" />
+    <Compile Include="BalanceState.cs" />
+    <Compile Include="Patches\EnchantmentBalancePatches.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SubModule.xml" />
+    <Content Include="ModuleData\TORBLTBalance.xml" />
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <Target Name="AfterBuild">
+    <Copy SourceFiles="SubModule.xml" DestinationFolder="$(OutDir)..\.." />
+    <MakeDir Directories="$(OutDir)..\..\ModuleData" />
+    <Copy SourceFiles="ModuleData\TORBLTBalance.xml" DestinationFolder="$(OutDir)..\..\ModuleData" />
+  </Target>
+</Project>

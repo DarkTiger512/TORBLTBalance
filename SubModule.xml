@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Module>
+  <Name value="TOR BLT Balance"/>
+  <Id value="TORBLTBalance"/>
+  <Version value="v0.1.0"/>
+  <DefaultModule value="true"/>
+  <SingleplayerModule value="true"/>
+  <Official value="false"/>
+  <DependedModules>
+    <DependedModule Id="Bannerlord.Harmony"/>
+    <DependedModule Id="Native"/>
+    <DependedModule Id="SandBoxCore"/>
+    <DependedModule Id="Sandbox"/>
+    <DependedModule Id="BannerlordTwitch"/>
+    <DependedModule Id="BLTAdoptAHero"/>
+    <DependedModule Id="TOR_Core"/>
+  </DependedModules>
+  <SubModules>
+    <SubModule>
+      <Name value="TOR BLT Balance"/>
+      <DLLName value="TORBLTBalance.dll"/>
+      <SubModuleClassType value="TORBLTBalance.TORBLTBalanceSubModule"/>
+      <Tags/>
+    </SubModule>
+  </SubModules>
+  <Xmls/>
+</Module>
