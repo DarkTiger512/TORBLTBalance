@@ -1,0 +1,17 @@
+# Build output
+bin/
+obj/
+build/
+artifacts/
+*.user
+*.suo
+*.pdb
+*.dll
+*.zip
+
+# IDE
+.vs/
+.idea/
+
+# Local Bannerlord paths / overrides
+Directory.Build.props
